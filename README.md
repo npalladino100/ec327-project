@@ -17,3 +17,5 @@ P.S. The first time you launch emacs after loading the configuration, it will ta
 
 ## first implementation - basic text-editing and file navigation
 This implementation supports all the standard emacs text-editing features, plus file navigation support using the direx package.  Try it out by pressing `C-x C-j` and a popup will show the current directory, which can be navigated using the keyboard or mouse.
+
+If you prefer to use the keyboard, use `C-x C-f` to get an interactive file navigator.
