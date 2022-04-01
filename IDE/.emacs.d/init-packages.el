@@ -12,7 +12,7 @@
 
 ; list the packages you want separated by spaces
 (setq package-list
-    '(elpy nord-theme direx popwin helm ivy))
+    '(elpy nord-theme direx popwin ivy switch-window workgroups2 dashboard))
 
 
 ; activate all the packages

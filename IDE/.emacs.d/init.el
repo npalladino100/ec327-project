@@ -16,6 +16,9 @@
 ;; load custom theme
 (load-theme 'nord t)
 
+;; always blink cursor
+(setq blink-cursor-blinks 0)
+
 ;; start emacs in fullscreen
 (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
 
@@ -71,7 +74,7 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
-(setq backup-directory-alist `(("." . "~/.saves"))) ;; directory where file backups are saved to
+(setq backup-directory-alist `(("." . "~/.emacs.d/.saves"))) ;; directory where file backups are saved to
 (setq backup-by-copying t)
 (setq delete-old-versions t
   kept-new-versions 6
@@ -111,6 +114,27 @@
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
-;; helm configuration
-(require 'helm-config)
-(helm-mode 1)
+(require 'switch-window)
+(global-set-key (kbd "C-x o") 'switch-window)
+
+;; dashboard configuration
+(dashboard-setup-startup-hook)
+;; Set the title
+(setq dashboard-banner-logo-title "Emacs IDE Homepage")
+;; Set the banner
+(setq dashboard-startup-banner 'official)
+;; Value can be
+;; 'official which displays the official emacs logo
+;; 'logo which displays an alternative emacs logo
+;; 1, 2 or 3 which displays one of the text banners
+;; "path/to/your/image.gif", "path/to/your/image.png" or "path/to/your/text.txt" which displays whatever gif/image/text you would prefer
+;; Content is not centered by default. To center, set
+(setq dashboard-center-content t)
+;; To disable shortcut "jump" indicators for each section, set
+(setq dashboard-show-shortcuts nil)
+(setq dashboard-items '((recents  . 5)
+			; other widgets
+			))
+(setq dashboard-set-init-info f)
+(setq dashboard-set-footer nil)
+(setq dashboard-set-navigator t)
