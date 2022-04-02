@@ -209,13 +209,14 @@
 
     (let ((default-directory user-emacs-directory)) 
       (eshell)
+      (insert "echo \"Please restart emacs for changes to take effect.\"")
+      (execute-kbd-macro (read-kbd-macro "<return>"))
+      (insert "cd ...")
+      (execute-kbd-macro (read-kbd-macro "<return>"))
       (insert "git pull")
       (execute-kbd-macro (read-kbd-macro "<return>"))
-      )
-
-    
-    
     )
+  )
 
 (define-button-type 'open-git-button
   'action 'open-git-button-pressed
@@ -223,6 +224,8 @@
   'face 'dashboard-heading)
 
 (defun dashboard-insert-open-git (list-size)
-  (insert-button "Update from GitHub" :type 'open-git-button))
+  (insert-button "Pull from GitHub" :type 'open-git-button))
 (add-to-list 'dashboard-item-generators  '(open-git . dashboard-insert-open-git))
 (add-to-list 'dashboard-items '(open-git) t)
+
+
