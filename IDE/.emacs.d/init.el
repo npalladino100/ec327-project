@@ -1,3 +1,4 @@
+
 (setq-default cursor-type 'bar) 
 (setq inhibit-startup-screen t)
 
@@ -117,24 +118,39 @@
 (require 'switch-window)
 (global-set-key (kbd "C-x o") 'switch-window)
 
-;; dashboard configuration
+
+;; custom buttons setup
+  (defun button-pressed (button)
+  (funcall-interactively 'direx:jump-to-directory-other-window))
+
+(define-button-type 'custom-button
+  'action 'button-pressed
+  'follow-link t
+  'face 'dashboard-heading)
+
+(require 'dashboard)
 (dashboard-setup-startup-hook)
+(defun dashboard-insert-open-file (list-size)
+  (insert-button "Open File" :type 'custom-button))
+(add-to-list 'dashboard-item-generators  '(open-file . dashboard-insert-open-file))
+(add-to-list 'dashboard-items '(open-file) t)
 ;; Set the title
-(setq dashboard-banner-logo-title "Emacs IDE Homepage")
+(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
 ;; Set the banner
-(setq dashboard-startup-banner 'official)
+(setq dashboard-startup-banner 'logo)
 ;; Value can be
 ;; 'official which displays the official emacs logo
 ;; 'logo which displays an alternative emacs logo
 ;; 1, 2 or 3 which displays one of the text banners
 ;; "path/to/your/image.gif", "path/to/your/image.png" or "path/to/your/text.txt" which displays whatever gif/image/text you would prefer
+
 ;; Content is not centered by default. To center, set
 (setq dashboard-center-content t)
+
 ;; To disable shortcut "jump" indicators for each section, set
 (setq dashboard-show-shortcuts nil)
+
 (setq dashboard-items '((recents  . 5)
-			; other widgets
+			(open-file)
+		        ; other widgets
 			))
-(setq dashboard-set-init-info f)
-(setq dashboard-set-footer nil)
-(setq dashboard-set-navigator t)
