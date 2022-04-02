@@ -63,7 +63,7 @@
   "Toggles transparency of Emacs between 3 settings (none, mild, moderate)."
   (interactive)
   (if (equal transparency_level 0)
-      (progn (set-frame-parameter (selected-frame) 'alpha '(75 . 85))
+      (progn (set-frame-parameter (selected-frame) 'alpha '(95 . 85))
          (setq transparency_level 1))
     (if (equal transparency_level 1)
     (progn (set-frame-parameter (selected-frame) 'alpha '(50 . 85))
@@ -73,7 +73,7 @@
          (setq transparency_level 0)))
       )))
 (define-key global-map (kbd "C-c t") 'my:change_transparency)
-;;(funcall-interactively 'my:change_transparency) 
+(funcall-interactively 'my:change_transparency) 
 
 ;; disable toolbar, menubar, and scrollbar
 (menu-bar-mode -1)
