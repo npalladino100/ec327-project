@@ -52,6 +52,11 @@
 ;; Show only one active window when opening multiple files at the same time.
 (add-hook 'window-setup-hook 'delete-other-windows)
 
+(cua-mode t)
+(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+(transient-mark-mode 1) ;; No region when it is not highlighted
+(setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+
 ;; function to adjust transparency with keybinding C-c t
 (setq transparency_level 0) ;; transparency level when emacs starts up
 (defun my:change_transparency ()
@@ -68,7 +73,7 @@
          (setq transparency_level 0)))
       )))
 (define-key global-map (kbd "C-c t") 'my:change_transparency)
-(funcall-interactively 'my:change_transparency) 
+;;(funcall-interactively 'my:change_transparency) 
 
 ;; disable toolbar, menubar, and scrollbar
 (menu-bar-mode -1)
@@ -119,25 +124,17 @@
 (global-set-key (kbd "C-x o") 'switch-window)
 
 
-;; custom buttons setup
-  (defun button-pressed (button)
-  (funcall-interactively 'direx:jump-to-directory-other-window))
 
-(define-button-type 'custom-button
-  'action 'button-pressed
-  'follow-link t
-  'face 'dashboard-heading)
-
+;; dashboard configuration
 (require 'dashboard)
 (dashboard-setup-startup-hook)
-(defun dashboard-insert-open-file (list-size)
-  (insert-button "Open File" :type 'custom-button))
-(add-to-list 'dashboard-item-generators  '(open-file . dashboard-insert-open-file))
-(add-to-list 'dashboard-items '(open-file) t)
+(setq dashboard-set-footer nil)
+(setq dashboard-set-init-info t)
+
 ;; Set the title
 (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
 ;; Set the banner
-(setq dashboard-startup-banner 'logo)
+(setq dashboard-startup-banner (concat user-emacs-directory "/images/stallman.png"))
 ;; Value can be
 ;; 'official which displays the official emacs logo
 ;; 'logo which displays an alternative emacs logo
@@ -151,6 +148,57 @@
 (setq dashboard-show-shortcuts nil)
 
 (setq dashboard-items '((recents  . 5)
-			(open-file)
-		        ; other widgets
 			))
+
+
+;; custom button to open a file using direx
+  (defun open-file-button-pressed (button)
+  (funcall-interactively 'direx:jump-to-directory-other-window))
+
+(define-button-type 'open-file-button
+  'action 'open-file-button-pressed
+  'follow-link t
+  'face 'dashboard-heading)
+
+(defun dashboard-insert-open-file (list-size)
+  (insert-button "Open File" :type 'open-file-button))
+(add-to-list 'dashboard-item-generators  '(open-file . dashboard-insert-open-file))
+(add-to-list 'dashboard-items '(open-file) t)
+
+
+;; custom button to open a shell window
+  (defun open-terminal-button-pressed (button)
+    (eshell)
+    (eshell/clear)
+    )
+
+(define-button-type 'open-terminal-button
+  'action 'open-terminal-button-pressed
+  'follow-link t
+  'face 'dashboard-heading)
+
+(defun dashboard-insert-open-terminal (list-size)
+  (insert-button "Open Terminal" :type 'open-terminal-button))
+(add-to-list 'dashboard-item-generators  '(open-terminal . dashboard-insert-open-terminal))
+(add-to-list 'dashboard-items '(open-terminal) t)
+
+
+;; custom button to open tetris
+  (defun open-tetris-button-pressed (button)
+    (tetris)
+    )
+
+(define-button-type 'open-tetris-button
+  'action 'open-tetris-button-pressed
+  'follow-link t
+  'face 'dashboard-heading)
+
+(defun dashboard-insert-open-tetris (list-size)
+  (insert-button "Open Tetris" :type 'open-tetris-button))
+(add-to-list 'dashboard-item-generators  '(open-tetris . dashboard-insert-open-tetris))
+(add-to-list 'dashboard-items '(open-tetris) t)
+
+
+
+;; elpy configuration
+(elpy-enable)
