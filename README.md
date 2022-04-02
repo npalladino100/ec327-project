@@ -18,6 +18,9 @@ This implementation supports all the standard emacs text-editing features, plus 
 
 Keyboard Shortcuts:
 Press `C-x C-j` and a popup will show the current directory, which can be navigated using the keyboard or mouse.
+
 If you prefer to use the keyboard, use `C-x C-f` to get an interactive file navigator.
+
 When you are editing a python script, you can press `C-c C-c` to execute the script.  The output will be displayed in a separate buffer, which you can switch to using `C-c C-z`.
+
 In a python script, put your cursor on something and press `C-c C-d` to display documentation, and pressing `q` will close the documentation buffer.
