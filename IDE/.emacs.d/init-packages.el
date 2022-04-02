@@ -12,7 +12,7 @@
 
 ; list the packages you want separated by spaces
 (setq package-list
-    '(elpy nord-theme direx popwin ivy switch-window workgroups2 dashboard elpy))
+    '(elpy nord-theme direx popwin ivy switch-window workgroups2 dashboard elpy conda virtualenvwrapper))
 
 
 ; activate all the packages
