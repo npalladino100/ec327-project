@@ -202,3 +202,27 @@
 
 ;; elpy configuration
 (elpy-enable)
+
+
+;; custom button to pull and apply changes from the project's github repo
+  (defun open-git-button-pressed (button)
+
+    (let ((default-directory user-emacs-directory)) 
+      (eshell)
+      (insert "git pull")
+      (execute-kbd-macro (read-kbd-macro "<return>"))
+      )
+
+    
+    
+    )
+
+(define-button-type 'open-git-button
+  'action 'open-git-button-pressed
+  'follow-link t
+  'face 'dashboard-heading)
+
+(defun dashboard-insert-open-git (list-size)
+  (insert-button "Update from GitHub" :type 'open-git-button))
+(add-to-list 'dashboard-item-generators  '(open-git . dashboard-insert-open-git))
+(add-to-list 'dashboard-items '(open-git) t)

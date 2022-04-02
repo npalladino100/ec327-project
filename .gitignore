@@ -39,3 +39,6 @@ Thumbs.db
 # Etc. #
 ########
 IDE/.emacs.d/eshell
+IDE/.emacs.d/recentf
+IDE/.emacs.d/workgroups
+IDE/.emacs.d/elpy
