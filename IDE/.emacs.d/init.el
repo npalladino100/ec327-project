@@ -229,19 +229,3 @@
 (add-to-list 'dashboard-item-generators  '(open-git . dashboard-insert-open-git))
 (add-to-list 'dashboard-items '(open-git) t)
 
-
-;; Anaconda virtual environment and Elpy setup
-(setq user-conda-env-directory "~/anaconda3/envs")
-(setq user-conda-directory (replace-regexp-in-string "envs" "" user-conda-env-directory))
-(setenv "WORKON_HOME" user-conda-env-directory)
-(pyvenv-mode 1)
-(pyvenv-workon "elpy_env")
-(venv-initialize-interactive-shells)
-(venv-initialize-eshell)
-(elpy-enable)
-(setq python-shell-completion-native-enable nil)
-(setq elpy-rpc-virtualenv-path 'current)
-(conda-env-initialize-eshell)
-(conda-env-autoactivate-mode t)
-(setq conda-env-home-directory (expand-file-name user-conda-directory))
-(custom-set-variables '(conda-anaconda-home user-conda-directory))
