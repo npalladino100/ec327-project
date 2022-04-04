@@ -9,13 +9,12 @@ Clone the repository, then create a new .emacs file and add the following lines 
 (setq user-emacs-directory "<path-to-repository>/IDE/.emacs.d")
 (load "<path-to-repository>/IDE/.emacs.d/init.el")
 
-;; Optional lines for anaconda support
-(venv-initialize-interactive-shells)
-(venv-initialize-eshell)
-(setq conda-env-home-directory (expand-file-name "~/anaconda3/")) ;; default anaconda path
-(custom-set-variables '(conda-anaconda-home "~/anaconda3/")) ;; default anaconda path
-(setq venv-location '("~/anaconda3/envs/<name-of-environment>")) ;; path to an anaconda environment
-(venv-workon "<name-of-environment>") ;; name of anaconda environment
+;; Optional lines for anaconda/python support
+;; Change these lines if your anaconda installation or environments are in different locations
+(setq user-conda-directory "~/anaconda3")
+(setq user-conda-env-directory "~/anaconda3/envs")
+(setq user-conda-env-name "elpy")
+(load (concat user-emacs-directory "/init-pyvenv.el")) ;; doesn't need to be changed
 
 ```
 Restart emacs.  The first time you launch after loading the configuration, it will take some time to download the required packages.
