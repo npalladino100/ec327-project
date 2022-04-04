@@ -8,12 +8,14 @@ Clone the repository, then create a new .emacs file and add the following lines 
 ```
 (setq user-emacs-directory "<path-to-repository>/IDE/.emacs.d")
 (load "<path-to-repository>/IDE/.emacs.d/init.el")
-(venv-initialize-interactive-shells) ;; if you want python support
-(venv-initialize-eshell) ;; if you want python support
-(setq conda-env-home-directory (expand-file-name "~/anaconda3/")) ;; default anaconda path (for python support)
-(custom-set-variables '(conda-anaconda-home "~/anaconda3/")) ;; default anaconda path (for python support)
-(setq venv-location '("~/anaconda3/envs/<name-of-environment>")) ;; path to an anaconda environment (for python support)
-(venv-workon "<name-of-environment>") ;; name of anaconda environment (for python support)
+
+;; Optional lines for anaconda support
+(venv-initialize-interactive-shells)
+(venv-initialize-eshell)
+(setq conda-env-home-directory (expand-file-name "~/anaconda3/")) ;; default anaconda path
+(custom-set-variables '(conda-anaconda-home "~/anaconda3/")) ;; default anaconda path
+(setq venv-location '("~/anaconda3/envs/<name-of-environment>")) ;; path to an anaconda environment
+(venv-workon "<name-of-environment>") ;; name of anaconda environment
 
 ```
 Restart emacs.  The first time you launch after loading the configuration, it will take some time to download the required packages.
@@ -29,7 +31,7 @@ If you prefer to use the keyboard, use `C-x C-f` to get an interactive file navi
 
 You can create/navigate windows and buffers using standard emacs commands.
 
-### Python
+### Python (with Anaconda)
 
 When you are editing a python script, you can press `C-c C-c` to execute the script.  The output will be displayed in a separate buffer, which you can switch to using `C-c C-z`.
 
