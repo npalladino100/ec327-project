@@ -147,7 +147,7 @@
 ;; To disable shortcut "jump" indicators for each section, set
 (setq dashboard-show-shortcuts nil)
 
-(setq dashboard-items '((recents  . 5)
+(setq dashboard-items '((recents  . 7)
 			))
 
 
@@ -200,26 +200,7 @@
 
 
 
-;; elpy configuration
-(elpy-enable)
-(setq python-shell-completion-native-enable nil)
-(setq elpy-rpc-virtualenv-path 'current)
 
-
-(conda-env-initialize-eshell)
-;; if you want auto-activation (see below for details), include:
-(conda-env-autoactivate-mode t)
-
-
-
-(venv-initialize-interactive-shells) ;; if you want interactive shell support
-(venv-initialize-eshell) ;; if you want eshell support
-
-
-(setq conda-env-home-directory (expand-file-name "~/anaconda3/")) ;; default anaconda path
-(custom-set-variables '(conda-anaconda-home "~/anaconda3/")) ;; default anaconda path
-(setq venv-location '("~/anaconda3/envs/conda4103")) ;; path to an anaconda environment
-(venv-workon "conda4103") ;; name of anaconda environment
 
 ;; custom button to pull and apply changes from the project's github repo
   (defun open-git-button-pressed (button)
