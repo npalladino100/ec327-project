@@ -22,7 +22,7 @@ Restart emacs.  The first time you launch after loading the configuration, it wi
 
 
 ## first implementation - basic text-editing and file navigation with partial IDE support
-This implementation supports all the standard emacs text-editing features, plus file navigation support using the direx package.  Python syntax-checking and interpretation is somewhat supported.  Anaconda is supported, but lines 219-222 of the init.el file need to be modified to point to the path of an anaconda virtual environment (this will be automated later).
+This implementation supports all the standard emacs text-editing features, plus file navigation support using the direx package.  Python syntax-checking and interpretation is somewhat supported.  Anaconda is supported, but the .emacs file needs to point to the path of an anaconda virtual environment (using the optional lines above).
 
 Keyboard Shortcuts:
 Press `C-x C-j` and a popup will show the current directory, which can be navigated using the keyboard or mouse.
