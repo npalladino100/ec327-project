@@ -14,6 +14,9 @@
 ;; check for packages to install
 (load (concat user-emacs-directory "/init-packages.el"))
 
+;; load java_functions
+(load (concat user-emacs-directory "/functions/java_functions.el"))
+
 ;; load custom theme
 (load-theme 'nord t)
 
@@ -225,5 +228,4 @@
   (insert-button "Pull from GitHub" :type 'open-git-button))
 (add-to-list 'dashboard-item-generators  '(open-git . dashboard-insert-open-git))
 (add-to-list 'dashboard-items '(open-git) t)
-
 
