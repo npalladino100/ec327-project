@@ -16,6 +16,7 @@
 (load (concat user-emacs-directory "/init-packages.el"))
 
 
+
 ;; load java_functions
 (load (concat user-emacs-directory "/functions/java_functions.el"))
 
@@ -201,5 +202,22 @@
 ;; load toolbar
 (load (concat user-emacs-directory "/functions/toolbar.el"))
 
+;(setenv "WORKON_HOME" user-conda-env-directory)
+;(add-hook 'dashboard-mode-hook 'pyvenv-mode)
+;(pyvenv-workon user-conda-env-name)
+;(python-mode)
+;(elpy-enable)
+;(add-hook 'python-mode-hook 'elpy-mode)
+;(elpy-shell-switch-to-shell)
+;(elpy-disable)
+;(setq elpy-shell-echo-input t)
+;(setq python-shell-completion-native-enable nil)
 
 
+(defun my-run-python ()
+  (interactive)
+  (elpy-shell-switch-to-shell)
+  (delete-window)
+  (elpy-shell-send-region-or-buffer)
+  (elpy-shell-switch-to-shell)
+  )

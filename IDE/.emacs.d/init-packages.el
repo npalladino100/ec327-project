@@ -23,6 +23,7 @@
 	conda
 	virtualenvwrapper
 	counsel
+        python-mode
 	))
 
 
