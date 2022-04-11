@@ -92,7 +92,7 @@
     (execute-kbd-macro (read-kbd-macro "<return>"))
 
 
-(insert-button "3. Run" :type 'run-button)
+(insert-button "4. Run" :type 'run-button)
 
 
 (defun open-toolbar ()

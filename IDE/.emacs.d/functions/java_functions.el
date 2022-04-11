@@ -8,13 +8,14 @@
 
 (defun compile-java ()
     (interactive)
-    (setq java-file-name (file-name-nondirectory buffer-file-name))
-    (setq java-file-name-no-extension (replace-regexp-in-string ".java" "" java-file-name))
-    (eshell)
+    (setq eshell-directory default-directory)
+      (eshell)
+      (cd eshell-directory)
+      (execute-kbd-macro (read-kbd-macro "<return>"))
     ;(popwin:stick-popup-window)
     ;(execute-kbd-macro (read-kbd-macro "C-c C-c"))
     (insert "javac ")
-    (insert java-file-name)
+    (insert program-file-name)
     (execute-kbd-macro (read-kbd-macro "<return>"))
     ;(other-window -1)
 					;(popwin:popup-buffer "*eshell*" :noselect t :stick t)
@@ -50,7 +51,11 @@
 ;            map))
 
 (defun my-compile ()
+  
   (interactive)
+    (setq program-file-name (file-name-nondirectory buffer-file-name))
+  (setq java-file-name-no-extension (replace-regexp-in-string ".java" "" program-file-name))
+  (setq python-file-name-no-extension (replace-regexp-in-string ".py" "" program-file-name))
   (if (equal prog-lang "java")
       (compile-java)
       )
@@ -60,6 +65,9 @@
   )
 (defun my-run ()
   (interactive)
+    (setq program-file-name (file-name-nondirectory buffer-file-name))
+  (setq java-file-name-no-extension (replace-regexp-in-string ".java" "" program-file-name))
+  (setq python-file-name-no-extension (replace-regexp-in-string ".py" "" program-file-name))
   (if (equal prog-lang "java")
       (run-java)
       )
@@ -80,7 +88,8 @@
   (setq prog-lang lang)
   ;(if (equal prog-lang "python")
   ;    (elpy-enable)
-  ;  )
+					;  )
+
   )
 
 

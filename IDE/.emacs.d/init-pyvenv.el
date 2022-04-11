@@ -3,7 +3,7 @@
 (pyvenv-workon user-conda-env-name)
 (venv-initialize-interactive-shells)
 (venv-initialize-eshell)
-
+(setq python-shell-interpreter "python")
 ;(defun my-eval-after-load-python()
 ;(add-to-list 'auto-mode-alist '("\\.py\\'" . elpy-mode))
 ;)
@@ -26,7 +26,7 @@
 ;(conda-env-initialize-eshell)
 ;(add-to-list 'auto-mode-alist '("\\.py\\'" . conda-env-autoactivate-mode))
 ;(conda-env-autoactivate-mode t)
-;(setq conda-env-home-directory (expand-file-name user-conda-directory))
+;(setq conda-env-home-directory user-conda-env-directory)
 ;(custom-set-variables '(conda-anaconda-home user-conda-directory))
 ;(setq elpy-shell-display-buffer-after-send t)
 
