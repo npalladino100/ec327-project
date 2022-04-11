@@ -53,7 +53,7 @@
 (switch-to-buffer "*toolbar*")
     
     
-    (insert-button "Open Terminal" :type 'open-terminal-button)
+    (insert-button "1. Open Terminal" :type 'open-terminal-button)
 
     (previous-buffer)
 
@@ -61,7 +61,7 @@
     (execute-kbd-macro (read-kbd-macro "<return>"))
 
 
-(insert-button "Open File" :type 'open-file-button)
+(insert-button "2. Open File" :type 'open-file-button)
 
 
 
