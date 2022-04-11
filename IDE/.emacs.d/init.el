@@ -214,10 +214,13 @@
 ;(setq python-shell-completion-native-enable nil)
 
 
+
 (defun my-run-python ()
   (interactive)
-  (elpy-shell-switch-to-shell)
+  (py-execute-buffer-python3-switch)
   (delete-window)
-  (elpy-shell-send-region-or-buffer)
-  (elpy-shell-switch-to-shell)
+  (popwin:popup-buffer "*Python3*")
   )
+
+(push '("*Python3*" :position bottom :dedicated t)
+      popwin:universal-display-config)

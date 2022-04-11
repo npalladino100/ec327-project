@@ -5,15 +5,14 @@
 (venv-initialize-eshell)
 
 ;(defun my-eval-after-load-python()
-;  (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 ;(add-to-list 'auto-mode-alist '("\\.py\\'" . elpy-mode))
 ;)
 ;(elpy-enable)
 ;(eval-after-load "python" '(my-eval-after-load-python))
 (setq-default indent-tabs-mode t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'auto-mode-alist '("\\.py\\'" . elpy-mode))
 
+;(add-to-list 'auto-mode-alist '("\\.py\\'" . elpy-mode))
+;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 ;(elpy-shell-switch-to-shell)
 ;(close-and-kill-this-pane)
 
@@ -30,8 +29,7 @@
 ;(setq conda-env-home-directory (expand-file-name user-conda-directory))
 ;(custom-set-variables '(conda-anaconda-home user-conda-directory))
 ;(setq elpy-shell-display-buffer-after-send t)
-(push '("*Python*" :position bottom :dedicated t)
-      popwin:special-display-config)
+
 
 
 ;(switch-to-buffer "*Python*")

@@ -47,10 +47,26 @@
   'face 'dashboard-heading)
 
 
+;; custom button to compile
+(defun compile-button-pressed (button)
+  (other-window -1)
+  (my-compile)
+    )
+(define-button-type 'compile-button
+  'action 'compile-button-pressed
+  'follow-link t
+  'face 'dashboard-heading)
 
 
-
-
+;; custom button to run
+(defun run-button-pressed (button)
+  (other-window -1)
+  (my-run)
+    )
+(define-button-type 'run-button
+  'action 'run-button-pressed
+  'follow-link t
+  'face 'dashboard-heading)
 
 
 
@@ -64,13 +80,19 @@
     (previous-buffer)
 
     (execute-kbd-macro (read-kbd-macro "<return>"))
-    (execute-kbd-macro (read-kbd-macro "<return>"))
 
 
 (insert-button "2. Open File" :type 'open-file-button)
 
+    (execute-kbd-macro (read-kbd-macro "<return>"))
 
 
+(insert-button "3. Compile" :type 'compile-button)
+
+    (execute-kbd-macro (read-kbd-macro "<return>"))
+
+
+(insert-button "3. Run" :type 'run-button)
 
 
 (defun open-toolbar ()
