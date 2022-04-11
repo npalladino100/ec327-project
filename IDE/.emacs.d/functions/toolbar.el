@@ -1,3 +1,9 @@
+(push '("*toolbar*" :position top :dedicated t)
+      popwin:special-display-config)
+(push '("*eshell*" :position bottom :dedicated t)
+      popwin:special-display-config)
+
+
 (defun close-and-kill-this-pane ()
       "If there are multiple windows, then close this pane and kill the buffer in it also."
       (interactive)
@@ -18,7 +24,8 @@
   (other-window -1)
   (setq eshell-directory default-directory)
   (other-window 1)
-      (eshell-other-window)
+  (popwin:close-popup-window)
+      (eshell)
       (cd eshell-directory)
       (execute-kbd-macro (read-kbd-macro "<return>"))
     )
@@ -43,8 +50,7 @@
 
 
 
-(push '("*toolbar*" :position top :dedicated t)
-      popwin:special-display-config)
+
 
 
 

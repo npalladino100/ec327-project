@@ -173,40 +173,6 @@
 (add-to-list 'dashboard-items '(open-file) t)
 
 
-;; custom button to open a shell window
-  (defun open-terminal-button-pressed (button)
-    (eshell)
-    )
-
-(define-button-type 'open-terminal-button
-  'action 'open-terminal-button-pressed
-  'follow-link t
-  'face 'dashboard-heading)
-
-(defun dashboard-insert-open-terminal (list-size)
-  (insert-button "Open Terminal" :type 'open-terminal-button))
-(add-to-list 'dashboard-item-generators  '(open-terminal . dashboard-insert-open-terminal))
-(add-to-list 'dashboard-items '(open-terminal) t)
-
-
-;; custom button to open tetris
-  (defun open-tetris-button-pressed (button)
-    (tetris)
-    )
-
-(define-button-type 'open-tetris-button
-  'action 'open-tetris-button-pressed
-  'follow-link t
-  'face 'dashboard-heading)
-
-(defun dashboard-insert-open-tetris (list-size)
-  (insert-button "Open Tetris" :type 'open-tetris-button))
-(add-to-list 'dashboard-item-generators  '(open-tetris . dashboard-insert-open-tetris))
-(add-to-list 'dashboard-items '(open-tetris) t)
-
-
-
-
 
 ;; custom button to pull and apply changes from the project's github repo
   (defun open-git-button-pressed (button)
@@ -232,6 +198,8 @@
 (add-to-list 'dashboard-item-generators  '(open-git . dashboard-insert-open-git))
 (add-to-list 'dashboard-items '(open-git) t)
 
-
 ;; load toolbar
 (load (concat user-emacs-directory "/functions/toolbar.el"))
+
+
+
