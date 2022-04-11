@@ -20,7 +20,6 @@
 	switch-window
 	workgroups2
 	dashboard
-	elpy
 	conda
 	virtualenvwrapper
 	counsel

@@ -2,6 +2,7 @@
 (setq-default cursor-type 'bar) 
 (setq inhibit-startup-screen t)
 
+(require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
@@ -14,8 +15,11 @@
 ;; check for packages to install
 (load (concat user-emacs-directory "/init-packages.el"))
 
+
 ;; load java_functions
 (load (concat user-emacs-directory "/functions/java_functions.el"))
+
+
 
 ;; load custom theme
 (load-theme 'nord t)
@@ -172,7 +176,6 @@
 ;; custom button to open a shell window
   (defun open-terminal-button-pressed (button)
     (eshell)
-    (eshell/clear)
     )
 
 (define-button-type 'open-terminal-button
@@ -229,3 +232,6 @@
 (add-to-list 'dashboard-item-generators  '(open-git . dashboard-insert-open-git))
 (add-to-list 'dashboard-items '(open-git) t)
 
+
+;; load toolbar
+(load (concat user-emacs-directory "/functions/toolbar.el"))
