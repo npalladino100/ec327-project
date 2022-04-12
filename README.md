@@ -6,35 +6,50 @@ If you already use emacs, backup your .emacs.d folder and your .emacs file if ne
 
 Clone the repository, then create a new .emacs file and add the following lines to it:
 ```
-(setq user-emacs-directory "<path-to-repository>/IDE/.emacs.d")
-(load "<path-to-repository>/IDE/.emacs.d/init.el")
+(setq user-emacs-directory "~/ec327-project/IDE/.emacs.d") ;; path to the repository
 
-;; Optional lines for anaconda/python support
-;; Change these lines if your anaconda installation or environments are in different locations
-(setq user-conda-directory "~/anaconda3")
-(setq user-conda-env-directory "~/anaconda3/envs")
-(setq user-conda-env-name "elpy")
-(load (concat user-emacs-directory "/init-pyvenv.el")) ;; doesn't need to be changed
+
+(setq user-conda-directory "~/anaconda3") ;; path to anaconda installation
+(setq user-conda-env-directory "~/anaconda3/envs") ;; path to anaconda environments
+(setq user-conda-env-name "elpy") ;; name of anaconda environment (leave as "elpy" if you set up the environment with "createnv.sh")
+
+(load (concat user-emacs-directory "/init.el"))  ;; leave unchanged
+
+(cd "/mnt/chromeos/GoogleDrive/MyDrive/drive") ;; default working environment (where you want shell/file navigator to start in)
+
 
 ```
 Restart emacs.  The first time you launch after loading the configuration, it will take some time to download the required packages.
 
 
-## first implementation - basic text-editing and file navigation with partial IDE support
-This implementation supports all the standard emacs text-editing features, plus file navigation support using the direx package.  Python syntax-checking and interpretation is somewhat supported.  Anaconda is supported, but the .emacs file needs to point to the path of an anaconda virtual environment (using the optional lines above).
+## Basic text-editing and file navigation
+The IDE supports all the standard emacs text-editing features, plus file navigation support using the direx package.
 
-### File Navigation
+### Toolbar
+Press `C-x C-x` to open the toolbar.  Click on one of the options, or navigate to it using the keyboard and press enter.
+#### Open Terminal
+Opens an emulated shell at the current working directory with support for linux commands like "ls".
+#### Open File
+Opens the file navigator at the current working directory.  Click on a file to open it.
+#### Compile
+Automatically detects programming language, compiles the buffer if it has a .java extension, or runs it using IPython if the extension is .py.
+#### Run
+Runs java programs or python scripts.
+
+### File navigation and editing
 Press `C-x C-j` and a popup will show the current directory, which can be navigated using the keyboard or mouse.
 
 If you prefer to use the keyboard, use `C-x C-f` to get an interactive file navigator.
 
-You can create/navigate windows and buffers using standard emacs commands.
+Press `C-x o` to switch windows.  If there are more than two windows, each will have a numbered label and pressing the corresponding number on your keyboard switches the cursor to that window.
 
-### Python (with Anaconda)
+Press `C-x b` to switch buffers.  You can type the name of the buffer and it will open in the current window.
 
-When you are editing a python script, you can press `C-c C-c` to execute the script.  The output will be displayed in a separate buffer, which you can switch to using `C-c C-z`.
+Press `C-x 0` to close a window.
 
-In a python script, put your cursor on something and press `C-c C-d` to display documentation, and pressing `q` will close the documentation buffer.
+Press `C-x k` to kill the current buffer.
 
-### Java
-When you are editing a python script, you can press `C-c C-j C-c` to compile the script in a terminal.  While in the terminal, you can press `C-c C-j C-r` to run the last-compiled script.
+Press `C-x 2` to split the window vertically.
+
+Press `C-x 3` to split the window horizontally.
+
