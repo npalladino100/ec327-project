@@ -33,7 +33,7 @@
 (require 'switch-window)
 (global-set-key (kbd "C-x o") 'switch-window)
 
-(push '("*toolbar*" :position top :dedicated t)
+(push '("*toolbar*" :position top :height 5 :dedicated t)
       popwin:special-display-config)
 (push '("*eshell*" :position bottom :dedicated t)
       popwin:special-display-config)
@@ -41,7 +41,6 @@
 
 ;; company mode and backends
 
-(add-hook 'after-init-hook 'global-company-mode)
 ; No delay in showing suggestions.
 (setq company-idle-delay 0.01)
 ; Show suggestions after entering one character.
@@ -53,33 +52,53 @@
 (add-hook 'java-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'lsp)
 (setq lsp-inhibit-message t)
-(setq lsp-ui-sideline-enable t
-	lsp-ui-sideline-show-symbol t
-	lsp-ui-sideline-show-hover t
-	lsp-ui-sideline-showcode-actions t
-	lsp-ui-sideline-update-mode 'point)
+;(setq lsp-ui-sideline-enable t
+;	lsp-ui-sideline-show-symbol t
+;	lsp-ui-sideline-show-hover t
+;	lsp-ui-sideline-showcode-actions t
+;	lsp-ui-sideline-update-mode 'point)
 (setq lsp-python-ms-auto-install-server t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;(add-hook 'python-mode-hook #'lsp-ui-mode)
 ;(add-hook 'python-mode-hook #'lsp-ui-sideline-mode)
-(add-hook 'after-init-hook #'lsp-ui-mode)
+;(add-hook 'after-init-hook #'lsp-ui-mode)
 ;(add-hook 'after-init-hook #'lsp-ui-sideline-mode)
 
-(add-hook 'emacs-startup-hook
-  (lambda ()
-    (setq lsp-ui-sideline-enable t)
-  ))
-
+;(add-hook 'emacs-startup-hook
+;  (lambda ()
+;    (setq lsp-ui-sideline-enable t)
+;  ))
+(setq lsp-java-completion-enabled nil)
 (setq lsp-prefer-capf t)
 (add-hook 'java-mode-hook 'smartparens-mode)
 (add-hook 'python-mode-hook 'smartparens-mode)
 
 (with-eval-after-load 'smartparens
   (sp-with-modes
-      '(c++-mode objc-mode c-mode java-mode python-mode)
+      '(c++-mode objc-mode c-mode java-mode python-mode elisp-mode)
     (sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))))
 (setq lsp-idle-delay 0.500)
 
 
 (with-eval-after-load 'treemacs
   (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action))
+
+(add-hook 'prog-mode-hook 'company-mode)
+
+    (add-hook 'emacs-lisp-mode-hook
+              (lambda ()
+                ;; Use spaces, not tabs.
+                (setq indent-tabs-mode nil)
+                ;; Pretty-print eval'd expressions.
+                (define-key emacs-lisp-mode-map
+                            "\C-x\C-e" 'pp-eval-last-sexp)
+                ;; Recompile if .elc exists.
+                (add-hook (make-local-variable 'after-save-hook)
+                          (lambda ()
+                            (byte-force-recompile default-directory)))
+                (define-key emacs-lisp-mode-map
+                            "\r" 'reindent-then-newline-and-indent)))
+(add-hook 'lsp-ui-mode-hook
+  (lambda ()
+    (lsp-ui-sideline-mode -1)
+  ))

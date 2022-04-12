@@ -13,6 +13,13 @@
 (load-theme 'nord t)
 ;; always blink cursor
 (setq blink-cursor-blinks 0)
+;; highlight the current line
+(global-hl-line-mode)
+;; hide the modeline
+(setq mode-line-format nil)
+(setq-default mode-line-format nil)
+;; don't confirm kill process
+(setq confirm-kill-processes nil)
 ;; start emacs in fullscreen
 (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
 ;; set word-wrapping default

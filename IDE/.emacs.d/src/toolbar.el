@@ -9,7 +9,8 @@
       (eshell)
       (cd eshell-directory)
       (execute-kbd-macro (read-kbd-macro "<return>"))
-    )
+      (eshell/clear)
+      )
 (define-button-type 'open-terminal-button
   'action 'open-terminal-button-pressed
   'follow-link t

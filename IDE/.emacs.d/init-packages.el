@@ -37,7 +37,7 @@
 ; activate all the packages
 (package-initialize)
 
-; fetch the list of packages available 
+; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -45,5 +45,4 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
-
 
