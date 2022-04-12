@@ -11,7 +11,7 @@ Clone the repository, then create a new .emacs file and add the following lines 
 
 (setq user-conda-directory "~/anaconda3") ;; path to anaconda installation
 (setq user-conda-env-directory "~/anaconda3/envs") ;; path to anaconda environments
-(setq user-conda-env-name "elpy") ;; name of anaconda environment (leave as "elpy" if you set up the environment with "createnv.sh")
+(setq user-conda-env-name "elpy") ;; name of anaconda environment (leave as "elpy" if you set up the environment with "createenv.sh")
 
 (load (concat user-emacs-directory "/init.el"))  ;; leave unchanged
 
@@ -21,9 +21,8 @@ Clone the repository, then create a new .emacs file and add the following lines 
 ```
 Restart emacs.  The first time you launch after loading the configuration, it will take some time to download the required packages.
 
-
-## Basic text-editing and file navigation
-The IDE supports all the standard emacs text-editing features, plus file navigation support using the direx package.
+### setting up python and anaconda
+If you already have anaconda installed, make sure the paths from the .emacs file match your installation and environment paths.  You can change the "elpy" environment name to an existing environment if you have one, or you can run the createenv.sh script in the root of the repository to generate an environment called "elpy".
 
 ### Toolbar
 Press `C-x C-x` to open the toolbar.  Click on one of the options, or navigate to it using the keyboard and press enter.
@@ -36,7 +35,7 @@ Automatically detects programming language, compiles the buffer if it has a .jav
 #### Run
 Runs java programs or python scripts.
 
-### File navigation and editing
+### file navigation and editing
 Press `C-x C-j` and a popup will show the current directory, which can be navigated using the keyboard or mouse.
 
 If you prefer to use the keyboard, use `C-x C-f` to get an interactive file navigator.
