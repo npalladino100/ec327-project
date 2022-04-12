@@ -40,9 +40,6 @@
 
 
 ;; company mode and backends
-;(setq lsp-python-ms-auto-install-server t)
-;(add-hook 'python-mode-hook #'lsp)
-
 
 (add-hook 'after-init-hook 'global-company-mode)
 ; No delay in showing suggestions.
@@ -54,4 +51,29 @@
 ; ('tng' means 'tab and go')
 (company-tng-configure-default)
 (add-hook 'java-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp)
 (setq lsp-inhibit-message t)
+(setq lsp-ui-sideline-enable t
+	lsp-ui-sideline-show-symbol t
+	lsp-ui-sideline-show-hover t
+	lsp-ui-sideline-showcode-actions t
+	lsp-ui-sideline-update-mode 'point)
+(setq lsp-python-ms-auto-install-server t)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;(add-hook 'python-mode-hook #'lsp-ui-mode)
+;(add-hook 'python-mode-hook #'lsp-ui-sideline-mode)
+(add-hook 'after-init-hook #'lsp-ui-mode)
+;(add-hook 'after-init-hook #'lsp-ui-sideline-mode)
+
+(add-hook 'emacs-startup-hook
+  (lambda ()
+    (setq lsp-ui-sideline-enable t)
+  ))
+
+(add-hook 'java-mode-hook 'smartparens-mode)
+(add-hook 'python-mode-hook 'smartparens-mode)
+
+(with-eval-after-load 'smartparens
+  (sp-with-modes
+      '(c++-mode objc-mode c-mode java-mode python-mode)
+    (sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))))

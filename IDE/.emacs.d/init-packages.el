@@ -29,6 +29,8 @@
 	lsp-mode
 	lsp-ui
 	lsp-java
+	flycheck
+	smartparens
 	))
 
 
