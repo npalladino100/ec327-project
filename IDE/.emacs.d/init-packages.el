@@ -24,6 +24,11 @@
 	virtualenvwrapper
 	counsel
         python-mode
+	company
+	lsp-python-ms
+	lsp-mode
+	lsp-ui
+	lsp-java
 	))
 
 
@@ -38,3 +43,5 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+
+

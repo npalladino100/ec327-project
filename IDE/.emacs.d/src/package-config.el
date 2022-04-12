@@ -37,3 +37,21 @@
       popwin:special-display-config)
 (push '("*eshell*" :position bottom :dedicated t)
       popwin:special-display-config)
+
+
+;; company mode and backends
+;(setq lsp-python-ms-auto-install-server t)
+;(add-hook 'python-mode-hook #'lsp)
+
+
+(add-hook 'after-init-hook 'global-company-mode)
+; No delay in showing suggestions.
+(setq company-idle-delay 0)
+; Show suggestions after entering one character.
+(setq company-minimum-prefix-length 1)
+(setq company-selection-wrap-around t)
+; Use tab key to cycle through suggestions.
+; ('tng' means 'tab and go')
+(company-tng-configure-default)
+(add-hook 'java-mode-hook #'lsp)
+(setq lsp-inhibit-message t)
