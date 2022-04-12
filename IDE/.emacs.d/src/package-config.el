@@ -43,7 +43,7 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 ; No delay in showing suggestions.
-(setq company-idle-delay 0)
+(setq company-idle-delay 0.01)
 ; Show suggestions after entering one character.
 (setq company-minimum-prefix-length 1)
 (setq company-selection-wrap-around t)
@@ -70,6 +70,7 @@
     (setq lsp-ui-sideline-enable t)
   ))
 
+(setq lsp-prefer-capf t)
 (add-hook 'java-mode-hook 'smartparens-mode)
 (add-hook 'python-mode-hook 'smartparens-mode)
 
@@ -77,3 +78,4 @@
   (sp-with-modes
       '(c++-mode objc-mode c-mode java-mode python-mode)
     (sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))))
+(setq lsp-idle-delay 0.500)
