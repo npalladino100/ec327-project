@@ -12,3 +12,6 @@
 
 ;; load compile_functions
 (load (concat user-emacs-directory "/src/compile-functions.el"))
+
+;; load python config
+(load "~/ec327-project/IDE/.emacs.d/src/python-config.el")

@@ -1,22 +1,3 @@
-(push '("*toolbar*" :position top :dedicated t)
-      popwin:special-display-config)
-(push '("*eshell*" :position bottom :dedicated t)
-      popwin:special-display-config)
-
-
-(defun close-and-kill-this-pane ()
-      "If there are multiple windows, then close this pane and kill the buffer in it also."
-      (interactive)
-      (kill-this-buffer)
-      (if (not (one-window-p))
-          (delete-window)))
-
-    (defun eshell-other-window ()
-  "Open an `eshell' in a new window."
-  (interactive)
-  (let ((buf (eshell)))
-    (switch-to-buffer (other-buffer buf))
-    (switch-to-buffer-other-window buf)))
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~ Buttons ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ;; custom button to open a shell window
@@ -36,8 +17,6 @@
 
 ;; custom button to open a file
 (defun open-file-button-pressed (button)
-;(execute-kbd-macro (kbd "C-g"))
-					;(other-window (- 1))
   (popwin:close-popup-window)
   (direx:jump-to-directory-other-window)
     )
@@ -67,7 +46,6 @@
   'action 'run-button-pressed
   'follow-link t
   'face 'dashboard-heading)
-
 
 
 ;; create toolbar buffer
@@ -103,5 +81,4 @@
     )
 
 ;; keyboard shortcut for toolbar
-
-(define-key global-map (kbd "C-t") 'open-toolbar)
+(define-key global-map (kbd "C-x C-x") 'open-toolbar)

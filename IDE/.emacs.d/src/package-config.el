@@ -32,3 +32,8 @@
 
 (require 'switch-window)
 (global-set-key (kbd "C-x o") 'switch-window)
+
+(push '("*toolbar*" :position top :dedicated t)
+      popwin:special-display-config)
+(push '("*eshell*" :position bottom :dedicated t)
+      popwin:special-display-config)
