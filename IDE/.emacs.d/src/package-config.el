@@ -79,3 +79,7 @@
       '(c++-mode objc-mode c-mode java-mode python-mode)
     (sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))))
 (setq lsp-idle-delay 0.500)
+
+
+(with-eval-after-load 'treemacs
+  (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action))
