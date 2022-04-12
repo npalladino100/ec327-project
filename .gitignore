@@ -42,3 +42,9 @@ IDE/.emacs.d/eshell
 IDE/.emacs.d/recentf
 IDE/.emacs.d/workgroups
 IDE/.emacs.d/elpy
+IDE/.emacs.d/eclipse.jdt.ls
+IDE/.emacs.d/.cache
+IDE/.emacs.d/.dap-breakpoints
+IDE/.emacs.d/.lsp-session-v1
+IDE/.emacs.d/ac-comphist.dat
+IDE/.emacs.d/workspace
