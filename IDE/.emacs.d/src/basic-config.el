@@ -80,3 +80,5 @@
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
+;; by default, .h files are c++ header files
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
