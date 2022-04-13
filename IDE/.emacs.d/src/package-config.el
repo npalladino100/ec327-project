@@ -72,10 +72,15 @@
 (setq lsp-prefer-capf t)
 (add-hook 'java-mode-hook 'smartparens-mode)
 (add-hook 'python-mode-hook 'smartparens-mode)
+(add-hook 'cc-mode-hook 'smartparens-mode)
+(add-hook 'c++-mode-hook 'smartparens-mode)
+(add-hook 'c-mode-hook 'smartparens-mode)
+(add-hook 'objc-mode-hook 'smartparens-mode)
+(add-hook 'elisp-mode-hook 'smartparens-mode)
 
 (with-eval-after-load 'smartparens
   (sp-with-modes
-      '(c++-mode objc-mode c-mode java-mode python-mode elisp-mode)
+      '(c++-mode objc-mode cc-mode c-mode java-mode python-mode elisp-mode)
     (sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))))
 (setq lsp-idle-delay 0.500)
 
