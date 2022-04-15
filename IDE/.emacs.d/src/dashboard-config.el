@@ -26,7 +26,7 @@
 
 ;; custom button to open a file using direx
   (defun open-file-button-pressed (button)
-  (funcall-interactively 'direx:jump-to-directory-other-window))
+  (funcall-interactively 'treemacs))
 
 (define-button-type 'open-file-button
   'action 'open-file-button-pressed

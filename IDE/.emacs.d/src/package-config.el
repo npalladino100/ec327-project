@@ -86,7 +86,13 @@
 
 
 (with-eval-after-load 'treemacs
-  (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action))
+(define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action)
+  (treemacs-define-doubleclick-action 'file-node-closed #'treemacs-visit-node-ace)
+  (treemacs-define-doubleclick-action 'file-node-open #'treemacs-visit-node-ace)
+  (setq treemacs-default-visit-action 'treemacs-visit-node-close-treemacs)
+  )
+
+  
 
 (add-hook 'prog-mode-hook 'company-mode)
 

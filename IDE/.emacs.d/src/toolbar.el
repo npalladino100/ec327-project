@@ -2,9 +2,9 @@
 ;; ~~~~~~~~~~~~~~~~~~~~~~~ Buttons ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ;; custom button to open a shell window
 (defun open-terminal-button-pressed (button)
-  (other-window -1)
-  (setq eshell-directory default-directory)
-  (other-window 1)
+  ;(other-window -1)
+ ; (setq eshell-directory default-directory)
+  ;(other-window 1)
   (popwin:close-popup-window)
       (eshell)
       (cd eshell-directory)
@@ -19,7 +19,7 @@
 ;; custom button to open a file
 (defun open-file-button-pressed (button)
   (popwin:close-popup-window)
-  (direx:jump-to-directory-other-window)
+  (treemacs)
     )
 (define-button-type 'open-file-button
   'action 'open-file-button-pressed
@@ -76,9 +76,10 @@
 
 (defun open-toolbar ()
     (interactive)
-  ;; toolbar temporary buffer
+    ;; toolbar temporary buffer
+    (setq eshell-directory default-directory)
     (popwin:display-buffer "*toolbar*")
-
+    
     )
 
 ;; keyboard shortcut for toolbar
