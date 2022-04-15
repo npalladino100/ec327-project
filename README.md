@@ -36,9 +36,7 @@ Automatically detects programming language, compiles the buffer if it has a .jav
 Runs java programs or python scripts.
 
 ### file navigation and editing
-Press `C-x C-j` and a popup will show the current directory, which can be navigated using the keyboard or mouse.
-
-If you prefer to use the keyboard, use `C-x C-f` to get an interactive file navigator.
+Press `C-x C-f` to open a file or create a new file.
 
 Press `C-x o` to switch windows.  If there are more than two windows, each will have a numbered label and pressing the corresponding number on your keyboard switches the cursor to that window.
 
@@ -52,3 +50,14 @@ Press `C-x 2` to split the window vertically.
 
 Press `C-x 3` to split the window horizontally.
 
+Press `C-x C-s` to save a file.
+
+Press `C-c s` to open the command window.
+
+Press `C-c l` to open recent files.
+
+Press `C-c c` to compile a java or python program.
+
+Press `C-c r` to run a java or python program.
+
+Press `C-c h` to navigate to the home directory (which you set in the .emacs file)
