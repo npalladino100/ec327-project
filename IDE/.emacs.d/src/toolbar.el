@@ -2,9 +2,6 @@
 ;; ~~~~~~~~~~~~~~~~~~~~~~~ Buttons ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ;; custom button to open a shell window
 (defun open-terminal-button-pressed (button)
-  ;(other-window -1)
- ; (setq eshell-directory default-directory)
-  ;(other-window 1)
   (popwin:close-popup-window)
       (eshell)
       (cd eshell-directory)

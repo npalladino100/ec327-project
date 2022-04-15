@@ -82,3 +82,27 @@
 
 ;; by default, .h files are c++ header files
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+;; open shell function
+(defun open-terminal ()
+  (interactive)
+    (setq eshell-directory default-directory)
+      (eshell)
+      (cd eshell-directory)
+      (execute-kbd-macro (read-kbd-macro "<return>"))
+      (eshell/clear)
+      )
+
+
+;; custom keybindings
+(global-set-key (kbd "C-c s") 'open-terminal)
+
+(global-set-key (kbd "C-c c") 'my-compile)
+
+(global-set-key (kbd "C-c r") 'my-run)
+
+(global-set-key (kbd "C-c f") 'counsel-find-file)
+
+(global-set-key (kbd "C-c l") 'recentf-open-files)
+
+(global-set-key (kbd "C-c h") (cd user-home-directory))

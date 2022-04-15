@@ -16,3 +16,6 @@
 ;; load python config
 (load "~/ec327-project/IDE/.emacs.d/src/python-config.el")
 
+
+(cd user-home-directory) ;; default working environment
+
