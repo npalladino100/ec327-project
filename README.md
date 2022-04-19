@@ -13,9 +13,8 @@ Clone the repository, then create a new .emacs file and add the following lines 
 (setq user-conda-env-directory "~/anaconda3/envs") ;; path to anaconda environments
 (setq user-conda-env-name "elpy") ;; name of anaconda environment (leave as "elpy" if you set up the environment with "createenv.sh")
 
+(setq user-home-directory "/mnt/chromeos/GoogleDrive/MyDrive/drive") ;; default working environment (where you want shell/file navigator to start in)
 (load (concat user-emacs-directory "/init.el"))  ;; leave unchanged
-
-(cd "/mnt/chromeos/GoogleDrive/MyDrive/drive") ;; default working environment (where you want shell/file navigator to start in)
 
 
 ```
