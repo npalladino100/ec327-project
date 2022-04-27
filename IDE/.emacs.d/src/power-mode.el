@@ -407,7 +407,8 @@ Accepts PARENT-FRAME."
           (dotimes (_ power-mode-particle-limit)
             (setq power-mode--particle-dead-frames
                   (cons (power-mode--make-particle-frame (selected-frame))
-                        power-mode--particle-dead-frames)))))
+                        power-mode--particle-dead-frames))))
+	)
     (progn
       (remove-hook 'post-self-insert-hook
                    #'power-mode--post-self-insert-hook)

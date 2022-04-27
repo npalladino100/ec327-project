@@ -5,9 +5,9 @@
 (setq dashboard-set-init-info t)
 
 ;; Set the title
-(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
+(setq dashboard-banner-logo-title "Emacs IDE")
 ;; Set the banner
-(setq dashboard-startup-banner (concat user-emacs-directory "/images/stallman.png"))
+(setq dashboard-startup-banner (concat user-emacs-directory "/images/dragon.png"))
 ;; Value can be
 ;; 'official which displays the official emacs logo
 ;; 'logo which displays an alternative emacs logo
@@ -25,8 +25,9 @@
 			))
 
 ;; custom button to open a file using direx
-  (defun open-file-button-pressed (button)
-  (funcall-interactively 'treemacs))
+(defun open-file-button-pressed (button)
+  (call-interactively 'find-file)
+  )
 
 (define-button-type 'open-file-button
   'action 'open-file-button-pressed

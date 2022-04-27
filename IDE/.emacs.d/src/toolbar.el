@@ -16,7 +16,7 @@
 ;; custom button to open a file
 (defun open-file-button-pressed (button)
   (popwin:close-popup-window)
-  (treemacs)
+  (call-interactively 'find-file)
     )
 (define-button-type 'open-file-button
   'action 'open-file-button-pressed

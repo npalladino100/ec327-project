@@ -31,6 +31,9 @@
 	lsp-java
 	flycheck
 	smartparens
+        spacemacs-theme
+	writeroom-mode
+	org-download
 	))
 
 
