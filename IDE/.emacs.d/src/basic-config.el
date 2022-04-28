@@ -135,3 +135,6 @@
   (display-message-or-buffer "Activating Power Mode")
     (power-mode)
   )
+(custom-set-faces
+ '(dashboard-heading ((t (:inherit dashboard-footer))))
+)
