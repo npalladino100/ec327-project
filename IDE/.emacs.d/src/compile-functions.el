@@ -64,6 +64,8 @@
     (insert "javac ")
     (insert program-file-name)
     (execute-kbd-macro (read-kbd-macro "<return>"))
+    (popwin:stick-popup-window)
+    (other-window -1)
     )
     
 

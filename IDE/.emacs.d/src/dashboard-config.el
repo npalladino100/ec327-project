@@ -24,42 +24,5 @@
 (setq dashboard-items '((recents  . 7)
 			))
 
-;; custom button to open a file using direx
-(defun open-file-button-pressed (button)
-  (call-interactively 'find-file)
-  )
-
-(define-button-type 'open-file-button
-  'action 'open-file-button-pressed
-  'follow-link t
-  'face 'dashboard-heading)
-
-(defun dashboard-insert-open-file (list-size)
-  (insert-button "Open File" :type 'open-file-button))
-(add-to-list 'dashboard-item-generators  '(open-file . dashboard-insert-open-file))
-(add-to-list 'dashboard-items '(open-file) t)
 
 
-;; custom button to pull and apply changes from the project's github repo
-  (defun open-git-button-pressed (button)
-
-    (let ((default-directory user-emacs-directory)) 
-      (eshell)
-      (insert "echo \"Please restart emacs for changes to take effect.\"")
-      (execute-kbd-macro (read-kbd-macro "<return>"))
-      (insert "cd ...")
-      (execute-kbd-macro (read-kbd-macro "<return>"))
-      (insert "git pull")
-      (execute-kbd-macro (read-kbd-macro "<return>"))
-    )
-  )
-
-(define-button-type 'open-git-button
-  'action 'open-git-button-pressed
-  'follow-link t
-  'face 'dashboard-heading)
-
-(defun dashboard-insert-open-git (list-size)
-  (insert-button "Pull from GitHub" :type 'open-git-button))
-(add-to-list 'dashboard-item-generators  '(open-git . dashboard-insert-open-git))
-(add-to-list 'dashboard-items '(open-git) t)

@@ -24,7 +24,7 @@
 ;; always blink cursor
 (setq blink-cursor-blinks 0)
 ;; highlight the current line
-(add-hook 'prog-mode-hook global-hl-line-mode)
+(add-hook 'prog-mode-hook 'global-hl-line-mode)
 ;; show line numbers
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 ;; hide the modeline
@@ -138,3 +138,4 @@
 (custom-set-faces
  '(dashboard-heading ((t (:inherit dashboard-footer))))
 )
+

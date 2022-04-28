@@ -28,6 +28,16 @@
 (global-set-key (kbd "C-x l") 'counsel-locate)
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+(define-key ivy-minibuffer-map (kbd "<return>") 'my-ivy-autocomp)
+
+
+(defun my-ivy-autocomp ()
+  (interactive)
+    (ivy-alt-done)
+
+  )
+  
+
 
 (require 'switch-window)
 (global-set-key (kbd "C-x o") 'switch-window)
