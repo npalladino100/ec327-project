@@ -48,3 +48,4 @@ IDE/.emacs.d/.dap-breakpoints
 IDE/.emacs.d/.lsp-session-v1
 IDE/.emacs.d/ac-comphist.dat
 IDE/.emacs.d/workspace
+IDE/.emacs.d/anaconda-mode/
