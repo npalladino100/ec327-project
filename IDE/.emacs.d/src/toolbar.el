@@ -1,4 +1,3 @@
-
 (easy-menu-define my-menu global-map "Toolbar"
   '("Menu Options"
     ["f: File Open" (open-file) t]
@@ -35,10 +34,15 @@
    ;(execute-kbd-macro (read-kbd-macro "C-x C-f"))
   (call-interactively 'counsel-find-file)
     )
-;; my-run
+
 (defun my-share ()
-    (execute-extended-command "crdt-share-buffer")
+    (call-interactively 'crdt-share-buffer)
     )
+
+;;(defun theme-change ()
+    ;;(call-interactively 'customize-themes)
+;;)
+
 ;; keyboard shortcut for toolbar
 (define-key global-map (kbd "C-x C-x") 'my-toolbar)
 
