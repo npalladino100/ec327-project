@@ -1,12 +1,14 @@
-
 (easy-menu-define my-menu global-map "Toolbar"
   '("Menu Options"
-    ["File Open" (open-file) t]
-    ["Terminal" (open-terminal) t]
-    ["Compile" (my-compile) t]
-    ["Run" (my-run) t]
-    ["Start Share Session" (my-share) t]
-    ;;["Change Theme" (theme-change) t]
+    ["f: File Open" (open-file) t]
+    ["s: Save File" (save-buffer) t]
+    ["S: Save As" (write-file) t]
+    ["t: Terminal" (open-terminal) t]
+    ["c: Compile" (my-compile) t]
+    ["r: Run" (my-run) t]
+    ["o: Share Session" (my-share) t]
+    ["h: Cd Home Directory" (my-cd-home) t]
+    ["i: Cd IDE Directory" (my-cd-ide) t]
     ))
 (defun my-toolbar-gui ()
   (interactive)
@@ -19,17 +21,14 @@
 (defcustom tmm-completion-prompt
   "
 "
-  "Help text to insert on the top of the completion buffer.
-To save space, you can set this to nil,
-in which case the standard introduction text is deleted too."
+  ""
   :type '(choice string (const nil)))
 ;;; ~~~~~~~~~~~~~~~~~~~~~~~ Buttons ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;    ;; custom button to open a shell window
 (defun open-terminal ()
       (eshell)
-      (cd eshell-directory)
-      (execute-kbd-macro (read-kbd-macro "<return>"))
-      (eshell/clear)
+      ;(cd eshell-directory)
+      ;(execute-kbd-macro (read-kbd-macro "<return>"))
+      ;(eshell/clear)
       )
 (defun open-file ()
    ;(execute-kbd-macro (read-kbd-macro "C-x C-f"))
@@ -68,3 +67,13 @@ in which case the standard introduction text is deleted too."
               (dired-other-window file)))
       (select-window window)
       (find-alternate-file (file-name-sans-versions file t)))))
+
+(defun my-cd-home ()
+  (cd user-home-directory)
+  (execute-kbd-macro (read-kbd-macro "<return>"))
+  )
+
+(defun my-cd-ide ()
+  (cd user-emacs-directory)
+  (execute-kbd-macro (read-kbd-macro "<return>"))
+  )
