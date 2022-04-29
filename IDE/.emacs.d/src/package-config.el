@@ -58,8 +58,8 @@
 ; Use tab key to cycle through suggestions.
 ; ('tng' means 'tab and go')
 (company-tng-configure-default)
-(add-hook 'java-mode-hook #'lsp)
-(add-hook 'python-mode-hook #'lsp)
+;(add-hook 'java-mode-hook #'lsp)
+;(add-hook 'python-mode-hook #'lsp)
 (setq lsp-inhibit-message t)
 ;(setq lsp-ui-sideline-enable t
 ;	lsp-ui-sideline-show-symbol t
@@ -91,7 +91,7 @@
   (sp-with-modes
       '(c++-mode objc-mode cc-mode c-mode java-mode python-mode elisp-mode)
     (sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))))
-(setq lsp-idle-delay 0.500)
+;(setq lsp-idle-delay 0.500)
 
 
 (with-eval-after-load 'treemacs
@@ -117,8 +117,12 @@
                           (lambda ()
                             (byte-force-recompile default-directory)))
                 (define-key emacs-lisp-mode-map
-                            "\r" 'reindent-then-newline-and-indent)))
-(add-hook 'lsp-ui-mode-hook
-  (lambda ()
-    (lsp-ui-sideline-mode -1)
-  ))
+                  "\r" 'reindent-then-newline-and-indent)))
+
+
+(yas-global-mode)
+
+
+(setq lsp-completion-provider :capf)
+
+(add-to-list 'company-backends 'company-anaconda)

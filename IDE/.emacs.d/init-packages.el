@@ -27,7 +27,7 @@
 	company
 	lsp-python-ms
 	lsp-mode
-	lsp-ui
+	;lsp-ui
 	lsp-java
 	flycheck
 	smartparens
@@ -35,6 +35,8 @@
 	writeroom-mode
 	org-download
 	crdt
+        anaconda-mode
+        company-anaconda
 	))
 
 

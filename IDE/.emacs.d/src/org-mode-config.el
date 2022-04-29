@@ -54,7 +54,8 @@
   (setq org-bullets-bullet-list '(" "))
 )
 
-
+(add-hook 'org-mode-hook (lambda ()
+                              (electric-indent-local-mode -1)))
 
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 (add-hook 'org-mode-hook 'visual-line-mode)
