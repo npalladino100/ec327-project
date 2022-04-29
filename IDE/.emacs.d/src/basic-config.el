@@ -126,6 +126,8 @@
 
 (global-set-key (kbd "C-c h") (cd user-home-directory))
 
+(global-set-key (kbd "C-c b") 'my-share)
+
 
 (load (concat user-emacs-directory "/src/power-mode.el"))
 

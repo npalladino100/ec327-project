@@ -34,6 +34,7 @@
         spacemacs-theme
 	writeroom-mode
 	org-download
+	crdt
 	))
 
 

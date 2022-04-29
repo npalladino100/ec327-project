@@ -5,6 +5,7 @@
     ["Terminal" (open-terminal) t]
     ["Compile" (my-compile) t]
     ["Run" (my-run) t]
+    ["Start Share Session" (my-share) t]
     ))
 (defun my-toolbar-gui ()
   (interactive)
@@ -34,6 +35,9 @@ in which case the standard introduction text is deleted too."
   (call-interactively 'counsel-find-file)
     )
 ;; my-run
+(defun my-share ()
+    (execute-extended-command "crdt-share-buffer")
+    )
 ;; keyboard shortcut for toolbar
 (define-key global-map (kbd "C-x C-x") 'my-toolbar)
 
