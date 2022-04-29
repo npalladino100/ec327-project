@@ -82,12 +82,12 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 ;; manage backups
-(setq backup-directory-alist `(("." . "~/.emacs.d/.saves"))) ;; directory where file backups are saved to
-(setq backup-by-copying t)
-(setq delete-old-versions t
-  kept-new-versions 6
-  kept-old-versions 2
-  version-control t)
+;(setq backup-directory-alist `(("." . "~/.emacs.d/.saves"))) ;; directory where file backups are saved to
+;(setq backup-by-copying t)
+;(setq delete-old-versions t
+;  kept-new-versions 6
+;  kept-old-versions 2
+;  version-control t)
 
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
@@ -141,3 +141,29 @@
  '(dashboard-heading ((t (:inherit dashboard-footer))))
 )
 
+(setq version-control t     ;; Use version numbers for backups.
+      kept-new-versions 10  ;; Number of newest versions to keep.
+      kept-old-versions 0   ;; Number of oldest versions to keep.
+      delete-old-versions t ;; Don't ask to delete excess backup versions.
+      backup-by-copying t)  ;; Copy all files, don't rename them.
+
+(setq vc-make-backup-files t)
+
+;; Default and per-save backups go here:
+(setq backup-directory-alist '(("" . "~/emacs-backups/per-save")))
+
+(defun force-backup-of-buffer ()
+  ;; Make a special "per session" backup at the first save of each
+  ;; emacs session.
+  (when (not buffer-backed-up)
+    ;; Override the default parameters for per-session backups.
+    (let ((backup-directory-alist '(("" . "~/emacs-backups/per-session")))
+          (kept-new-versions 3))
+      (backup-buffer)))
+  ;; Make a "per save" backup on each save.  The first save results in
+  ;; both a per-session and a per-save backup, to keep the numbering
+  ;; of per-save backups consistent.
+  (let ((buffer-backed-up nil))
+    (backup-buffer)))
+
+(add-hook 'before-save-hook  'force-backup-of-buffer)
