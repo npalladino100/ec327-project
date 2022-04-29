@@ -1,6 +1,6 @@
 (easy-menu-define my-menu global-map "Toolbar"
   '("Menu Options"
-    ["f: File Open" (open-file) t]
+    ["f: Open File" (open-file) t]
     ["s: Save File" (save-buffer) t]
     ["S: Save As" (write-file) t]
     ["t: Terminal" (open-terminal) t]
