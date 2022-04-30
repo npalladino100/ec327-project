@@ -8,7 +8,7 @@
 ;; ignore cl deprecation warnings
 (setq byte-compile-warnings '(cl-functions))
 (defun display-startup-echo-area-message ()
-  (message "Press C-x C-x to open the toolbar"))
+  (message "Press C-x C-x to open the toolbar. Press C-c C-z to open preferences menu"))
 
 ;; better fullscreen
 ;(w32-send-sys-command ?\xf030)
@@ -19,8 +19,6 @@
 (setq ring-bell-function 'ignore)
 ;; check for packages to install
 (load (concat user-emacs-directory "/init-packages.el"))
-;; load custom theme
-;;(load-theme 'gruvbox-dark-soft t)
 ;; always blink cursor
 (setq blink-cursor-blinks 0)
 ;; highlight the current line
@@ -82,7 +80,7 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 ;; manage backups
-;(setq backup-directory-alist `(("." . "~/.emacs.d/.saves"))) ;; directory where file backups are saved to
+(setq backup-directory-alist `(("." . "~/.emacs.d/.saves"))) ;; directory where file backups are saved to
 ;(setq backup-by-copying t)
 ;(setq delete-old-versions t
 ;  kept-new-versions 6
