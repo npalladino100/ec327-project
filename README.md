@@ -13,6 +13,9 @@ Clone the repository, then create a new .emacs file and add the following lines 
 (setq user-conda-env-directory "~/anaconda3/envs") ;; path to anaconda environments
 (setq user-conda-env-name "elpy") ;; name of anaconda environment (leave as "elpy" if you set up the environment with "createenv.sh")
 
+(setq custom-file (concat user-emacs-directory "/src/custom.el")) ;; path to customization file
+(load custom-file)
+
 (setq user-home-directory "~") ;; default working environment (where you want shell/file navigator to start in)
 (load (concat user-emacs-directory "/init.el"))  ;; leave unchanged
 
