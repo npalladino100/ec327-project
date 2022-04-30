@@ -39,10 +39,6 @@
     (call-interactively 'crdt-share-buffer)
     )
 
-;;(defun theme-change ()
-    ;;(call-interactively 'customize-themes)
-;;)
-
 ;; keyboard shortcut for toolbar
 (define-key global-map (kbd "C-x C-x") 'my-toolbar)
 

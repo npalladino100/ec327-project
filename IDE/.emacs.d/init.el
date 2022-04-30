@@ -10,6 +10,10 @@
 ;; load toolbar
 (load (concat user-emacs-directory "/src/toolbar.el"))
 
+;; load user preferences menu
+(load (concat user-emacs-directory "/src/user_preferences.el"))
+
+
 ;; load org-mode config
   (load (concat user-emacs-directory "/src/org-mode-config.el"))
 

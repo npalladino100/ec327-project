@@ -20,7 +20,7 @@
 ;; check for packages to install
 (load (concat user-emacs-directory "/init-packages.el"))
 ;; load custom theme
-(load-theme 'gruvbox-dark-soft t)
+;;(load-theme 'gruvbox-dark-soft t)
 ;; always blink cursor
 (setq blink-cursor-blinks 0)
 ;; highlight the current line
