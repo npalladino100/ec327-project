@@ -3,7 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(gruvbox-dark-medium))
+ '(custom-enabled-themes '(manoj-dark))
  '(custom-safe-themes
    '("8f97d5ec8a774485296e366fdde6ff5589cf9e319a584b845b6f7fa788c9fa9a" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "197cefea731181f7be51e9d498b29fb44b51be33484b17416b9855a2c4243cb1" default)))
 (custom-set-faces

@@ -1,3 +1,7 @@
+;; load custom file
+(setq custom-file (concat user-emacs-directory "/src/custom.el"))
+(load custom-file)
+
 ;; load basic config
 (load (concat user-emacs-directory "/src/basic-config.el"))
 
