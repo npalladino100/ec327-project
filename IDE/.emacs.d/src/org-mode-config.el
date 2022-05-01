@@ -128,4 +128,4 @@
 (load (concat user-emacs-directory "/src/org-fragtog.el"))
 (add-hook 'org-mode-hook 'org-fragtog-mode)
 
-(add-hook 'org-mode-hook 'org-pretty-table-mode)
+;(add-hook 'org-mode-hook 'org-pretty-table-mode)

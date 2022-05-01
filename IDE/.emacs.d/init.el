@@ -19,6 +19,7 @@
 
 
 ;; load org-mode config
+(load (concat user-emacs-directory "/src/org-mode-config.el"))
 
 ;; load python config (uncomment if using python)
 (load (concat user-emacs-directory "/src/python-config.el"))
