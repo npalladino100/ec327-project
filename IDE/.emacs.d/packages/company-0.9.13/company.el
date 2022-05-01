@@ -64,10 +64,7 @@
 (require 'cl-lib)
 (require 'newcomment)
 (require 'pcase)
-(require 'company)
-(global-company-mode t)
-(require 'company-emacs-eclim)
-(company-emacs-eclim-setup)
+
 
 ;;; Compatibility
 (eval-and-compile
@@ -82,13 +79,13 @@ attention to case differences."
              (eq t (compare-strings suffix nil nil
                                     string start-pos nil ignore-case)))))))
 
-(defgroup company nil
+(defgroup company 
   "Extensible inline text completion mechanism."
   :group 'abbrev
   :group 'convenience
   :group 'matching)
 
-(defgroup company-faces nil
+(defgroup company-faces 
   "Faces used by Company."
   :group 'company
   :group 'faces)
@@ -3246,46 +3243,6 @@ Delay is determined by `company-tooltip-idle-delay'."
   (pcase command
     (`post-command (company-echo-show-when-idle 'company-fetch-metadata))
     (`hide (company-echo-hide))))
-
-(setq python-shell-interpreter "/home/rafatieppo/anaconda3/bin/python3")
-
-(global-company-mode t)
-
-(setq company-idle-delay 0)
-
-(setq company-minimum-prefix-length 3)
-
-(company-quickhelp-mode 1)
-
-(setq company-quickhelp-delay 0)
-
-(defun my/python-mode-hook ())
-
-(add-to-list 'company-backends 'company-jedi)
-
-(add-hook 'python-mode-hook 'my/python-mode-hook)
-
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-
-(custom-set-faces
- ;; ...
- '(company-preview ((t (:background "black" :foreground "red"))))
- '(company-preview-common ((t (:foreground "red"))))
- '(company-preview-search ((t (:inherit company-preview))))
- '(company-scrollbar-bg ((t (:background "brightwhite"))))
- '(company-scrollbar-fg ((t (:background "red"))))
- '(company-template-field ((t (:background "magenta" :foreground "black"))))
- '(company-tooltip ((t (:background "brightwhite" :foreground "black"))))
- '(company-tooltip-annotation ((t (:background "brightwhite" :foreground "black"))))
- '(company-tooltip-annotation-selection ((t (:background "color-253"))))
- '(company-tooltip-common ((t (:background "brightwhite" :foreground "red"))))
- '(company-tooltip-common-selection ((t (:background "color-253" :foreground "red"))))
- '(company-tooltip-mouse ((t (:foreground "black"))))
- '(company-tooltip-search ((t (:background "brightwhite" :foreground "black"))))
- '(company-tooltip-selection ((t (:background "color-253" :foreground
- "black"))))
- ;; ...
-)
 
 
 (provide 'company)
