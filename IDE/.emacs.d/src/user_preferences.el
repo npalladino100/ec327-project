@@ -1,6 +1,8 @@
 (easy-menu-define my-menu2 global-map "Preferences"
   '("Menu Options"
     ["t: Change Theme" (my-theme) t]
+    ["f: Edit Face" (my-face) t]
+    ["n: Edit Font" (my-font) t]
     ))
 (defun my-preferences-gui ()
   (interactive)
@@ -23,6 +25,15 @@
 (defun my-theme ()
     
     (call-interactively 'customize-themes)
+)
+
+(defun my-face ()
+    (call-interactively 'customize-face)
+)
+
+(defun my-font ()
+
+    (call-interactively 'menu-set-font)
 )
 
 ;; keyboard shortcut for preference bar
