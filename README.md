@@ -24,7 +24,7 @@ Restart emacs.  The first time you launch after loading the configuration, it wi
 If you already have anaconda installed, make sure the paths from the .emacs file match your installation and environment paths.  You can change the "elpy" environment name to an existing environment if you have one, or you can run the createenv.sh script in the root of the repository to generate an environment called "elpy".
 
 ### Toolbar
-Press `C-x C-x` to open the toolbar.  Click on one of the options, or press its corresponding key.
+Press `C-x C-x` to open the toolbar.  Click on one of the options or press its corresponding key.
 
 Here are some of the toolbar options:
 #### Terminal
@@ -35,6 +35,19 @@ Opens the file navigator at the current working directory.  Click on a file to o
 Automatically detects programming language, compiles the buffer if it has a .java extension, or runs it using IPython if the extension is .py.
 #### Run
 Runs java programs or python scripts.
+#### Share Session
+Starts a share session where multiple users can edit one buffer at the same time and see live edits.
+
+### User Preferences
+Press `C-c C-z` to open the user preferences menu. Click on one of the options or press its corresponding key.
+
+Here are the options:
+#### Customize Theme
+Opens a buffer with a list of themes that the user can select from to change to overall look and color scheme of their IDE. Clicking Save Theme Settings will save this setting for future sessions.
+#### Edit Face
+Opens a buffer with a list of options. A face determines how Emacs displays different types of text
+#### Edit Font
+Opens a menu where a user can change the font and the font size.
 
 ### file navigation and editing (these are default emacs keybindings)
 Press `C-x C-f` to open a file or create a new file.
@@ -52,3 +65,5 @@ Press `C-x 2` to split the window vertically.
 Press `C-x 3` to split the window horizontally.
 
 Press `C-x C-s` to save a file.
+
+Press `C-x C-c` to close Emacs.
