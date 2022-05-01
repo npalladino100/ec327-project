@@ -29,3 +29,4 @@
 
 (cd user-home-directory) ;; default working environment
 
+(add-to-list 'load-path "~/.emacs.d") ;; there was an error on mine and adding this fixed it -aurelia 
