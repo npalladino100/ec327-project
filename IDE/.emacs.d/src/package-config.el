@@ -55,6 +55,11 @@
 ; Show suggestions after entering one character.
 (setq company-minimum-prefix-length 1)
 (setq company-selection-wrap-around t)
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+  )
+
 ; Use tab key to cycle through suggestions.
 ; ('tng' means 'tab and go')
 (company-tng-configure-default)
@@ -126,3 +131,8 @@
 (setq lsp-completion-provider :capf)
 
 (add-to-list 'company-backends 'company-anaconda)
+
+(global-undo-tree-mode)
+(global-set-key (kbd "C-z") 'undo-tree-undo)
+(global-set-key (kbd "C-S-z") 'undo-tree-redo)
+(global-set-key (kbd "C-y") 'undo-tree-redo)

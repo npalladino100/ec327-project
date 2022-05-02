@@ -37,6 +37,7 @@
 	crdt
         anaconda-mode
         company-anaconda
+        undo-tree
 	))
 
 
