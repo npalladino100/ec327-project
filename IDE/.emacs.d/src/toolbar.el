@@ -9,6 +9,7 @@
     ["z: Undo" (undo-tree-undo) t]
     ["y: Redo" (undo-tree-redo) t]
     ["o: Share Session" (my-share) t]
+    ["g: Run GDB" (my-gdb) t]
 
     ("w: Window Options" ;; this is a sub-menu
      [ "o: Switch Window" (switch-window) ]
@@ -92,4 +93,9 @@
 (defun my-cd-ide ()
   (cd (concat user-emacs-directory "/../.."))
   ;(execute-kbd-macro (read-kbd-macro "<return>"))
+  )
+
+(defun my-gdb ()
+  ;(setq program-file-name (file-name-nondirectory buffer-file-name))
+  (call-interactively 'gdb)
   )
