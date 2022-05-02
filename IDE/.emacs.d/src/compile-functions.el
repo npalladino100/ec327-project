@@ -8,13 +8,16 @@
     (setq program-file-name (file-name-nondirectory buffer-file-name))
   (setq java-file-name-no-extension (replace-regexp-in-string ".java" "" program-file-name))
   (setq python-file-name-no-extension (replace-regexp-in-string ".py" "" program-file-name))
+  (setq cpp-file-name-no-extension (replace-regexp-in-string ".cpp" "" program-file-name))
   
   (if (equal prog-lang "java")
       (compile-java)
       )
   (if (equal prog-lang "python")
       (my-run-python)
-    
+    )
+  (if (equal prog-lang "cpp")
+     (compile-cpp)
     )
   )
 
@@ -23,20 +26,23 @@
     (setq program-file-name (file-name-nondirectory buffer-file-name))
   (setq java-file-name-no-extension (replace-regexp-in-string ".java" "" program-file-name))
   (setq python-file-name-no-extension (replace-regexp-in-string ".py" "" program-file-name))
-  
+  (setq cpp-file-name-no-extension (replace-regexp-in-string ".cpp" "" program-file-name))
+
   (if (equal prog-lang "java")
       (run-java)
       )
   (if (equal prog-lang "python")
       (my-run-python)
-    
+    )
+  (if (equal prog-lang "cpp")
+      (run-cpp)
     )
   )
 
 
 (add-hook 'java-mode-hook (lambda () (set-prog-lang "java")))
 (add-hook 'python-mode-hook (lambda () (set-prog-lang "python")))
-
+(add-hook 'c++-mode-hook (lambda () (set-prog-lang "cpp")))
 
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~ Python ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -76,5 +82,32 @@
   (eshell)
     (insert "java ")
     (insert java-file-name-no-extension)
+    (execute-kbd-macro (read-kbd-macro "<return>"))
+    )
+
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~ cpp ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(defun compile-cpp ()
+    (interactive)
+    (setq eshell-directory default-directory)
+      (eshell)
+      (cd eshell-directory)
+      (execute-kbd-macro (read-kbd-macro "<return>"))
+      (insert (concat "g++ -o " cpp-file-name-no-extension))
+      (insert " ")
+    (insert program-file-name)
+    (execute-kbd-macro (read-kbd-macro "<return>"))
+    (popwin:stick-popup-window)
+    (other-window -1)
+    )
+    
+
+(defun run-cpp ()
+  (interactive)
+  (eshell)
+  (delete-window)
+  (eshell)
+    (insert "./")
+    (insert cpp-file-name-no-extension)
+    (insert ".exe")
     (execute-kbd-macro (read-kbd-macro "<return>"))
     )
