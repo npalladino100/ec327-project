@@ -27,6 +27,9 @@
 ;; load compile_functions
 (load (concat user-emacs-directory "/src/compile-functions.el"))
 
+;; load GDB layout
+(load (concat user-emacs-directory "/src/debugging.el"))
+
 
 (cd user-home-directory) ;; default working environment
 
